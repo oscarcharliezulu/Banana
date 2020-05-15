@@ -13,18 +13,23 @@ Sandbox.define('/Blacklist', 'GET', function(req, res){
     var failed = [{
         "Blacklist": "Fraud",
         "Outcome": "On Blacklist",
-        "Recorded": " {{today}} "
+        "Recorded": "08/04/2013"
     }]
     
     var passed = [{
         "Blacklist": "Fraud",
         "Outcome": "On Blacklist",
-        "Recorded": " {{today}} "
+        "Recorded": "05/05/2020"
     }]
     
-    if (req.query.FirstName == "John") {
-        return res.json(failed)
-    } else {
+    var n = req.query.FirstName
+    
+    if (str.includes("John"))
+        {
+            return res.json(failed)
+        } 
+    else 
+    {
         return res.json(passed)
     }
 });
