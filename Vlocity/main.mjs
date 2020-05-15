@@ -14,25 +14,26 @@ Sandbox.define('/Blacklist', 'GET', function(req, res){
         "Blacklist": "Fraud",
         "Outcome": "On Blacklist",
         "Recorded": "08/04/2013"
-    }]
+    }];
     
     var passed = [{
         "Blacklist": "Fraud",
         "Outcome": "On Blacklist",
         "Recorded": "05/05/2020"
-    }]
+    }];
     
-    var n = req.query.FirstName
+    var n = req.query.FirstName;
     
-    if (str.includes("John"))
+    if (n.includes("John"))
         {
-            return res.json(failed)
+            return res.json(failed);
         } 
     else 
     {
-        return res.json(passed)
+        return res.json(passed);
     }
-});
+}) ;
+
 
 // Using stateful behaviour to simulate creating users
 Sandbox.define('/users', 'POST', createUserHandler);
