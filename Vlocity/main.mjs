@@ -26,11 +26,11 @@ Sandbox.define('/Blacklist', 'GET', function(req, res){
     
     if (n.includes("John"))
         {
-            return res.json(failed);
+            return res.json(n);
         } 
     else 
     {
-        return res.json(passed);
+        return res.json(n);
     }
 }) ;
 
