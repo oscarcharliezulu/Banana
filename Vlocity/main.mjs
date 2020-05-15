@@ -25,7 +25,7 @@ Sandbox.define('/Blacklist', 'GET', function(req, res){
     if (req.query.FirstName == "John") {
         return res.json(failed)
     } else {
-        return res.json(failed)
+        return res.json(passed)
     }
 });
 
