@@ -26,9 +26,9 @@ Sandbox.define('/Blacklist', 'GET', function(req, res){
             return res.json(failed);
         } 
     else 
-    {
-        return res.json(passed);
-    }
+        {
+            return res.json(passed);
+        }
 }) ;
 
 
