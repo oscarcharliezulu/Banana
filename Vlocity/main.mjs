@@ -10,23 +10,26 @@ Sandbox.define('/Blacklist', 'GET', function(req, res){
     // send 'Hello world' response
     // res.send('Hello world');
     
-    var failed = [
-            {
-              "Blacklist": "Fraud",
-              "Outcome": "On Blacklist",
-              "Recorded": " {{today}} "
-            }
-        ]
-        
-    var passed = [
-            {
-              "Blacklist": "Fraud",
-              "Outcome": "On Blacklist",
-              "Recorded": " {{today}} "
-            }
-        ]
-        
-        return res.json(failed)
+    var failed = [{
+        "Blacklist": "Fraud",
+        "Outcome": "On Blacklist",
+        "Recorded": " {{today}} "
+    }]
+    
+    var passed = [{
+        "Blacklist": "Fraud",
+        "Outcome": "On Blacklist",
+        "Recorded": " {{today}} "
+    }]
+    
+    if (req.query.FirstName == "John")
+        {
+            return res.json(failed)
+        }
+    else
+        {
+            return res.json(failed)
+        }
 });
 
 // Using stateful behaviour to simulate creating users
