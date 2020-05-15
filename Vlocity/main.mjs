@@ -22,14 +22,11 @@ Sandbox.define('/Blacklist', 'GET', function(req, res){
         "Recorded": " {{today}} "
     }]
     
-    if (req.query.FirstName == "John")
-        {
-            return res.json(failed)
-        }
-    else
-        {
-            return res.json(failed)
-        }
+    if (req.query.FirstName == "John") {
+        return res.json(failed)
+    } else {
+        return res.json(failed)
+    }
 });
 
 // Using stateful behaviour to simulate creating users
