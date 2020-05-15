@@ -17,8 +17,8 @@ Sandbox.define('/Blacklist', 'GET', function(req, res){
     }];
     
     var passed = [{
-        "Blacklist": "Fraud",
-        "Outcome": "On Blacklist",
+        "Blacklist": "None",
+        "Outcome": "No Issues Found",
         "Recorded": "05/05/2020"
     }];
     
