@@ -81,7 +81,7 @@ Sandbox.define('/OneTimePayment','GET', function(req, res){
     
     // Dynamic Response Section
     
-    if (payamount >= 5000)
+    if (payamount > 5000)
             {
                 return res.json(PaymentRejected);
             }
