@@ -41,10 +41,6 @@ Sandbox.define('/OneTimePayment','GET', function(req, res) {
 
 
 
-
-
-    // Set the status code of the response.
-    res.status(200);
     
     // Send the response body.
     res.json({
