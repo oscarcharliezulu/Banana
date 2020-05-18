@@ -41,82 +41,73 @@ Sandbox.define('/OneTimePayment','GET', function(req, res){
     // Expected parameters:
     // PaymentType = VISA, AMEX, DEBIT, any others will return unsupported payment type
     // Payment amount simply returns the same value passed
-        
+    
     // PaymentDate = todays date
-        var today = new Date();
-
+    var today = new Date();
+    
     // Generate a random Receipt Number:
-        var receipt =  Math.floor(Math.random() * 1000000000);
+    var receipt = Math.floor(Math.random() * 1000000000);
     
     // Other variables
-        var paychannel = req.query.PaymentType;
-        var payamount = req.query.Amount;
-
+    var paychannel = req.query.PaymentType;
+    var payamount = req.query.Amount;
+    
     // Response Examples:
-        var PaymentConfirmed = [{
-            "ResponsePaymentType": req.query.PaymentType,
-            "ResponsePaymentDate": today,
-            "ResponsePaymentAmount": req.query.Amount,
-            "ResponsePaymentStatus" : "Confirmed",
-            "ResponsePaymentReason" : "Ok",
-            "ResponsePaymentReceipt" : receipt,
-            "ResponsePaymentCurrency" : req.query.AmountCurrency,
-            "ResponsePaymentInstituion" : req.query.Institution,
-            "ResponsePaymentAccountName" : req.query.AccountName
-        }];
-        var PaymentRejected = [{
-            "ResponsePaymentType": req.query.PaymentType,
-            "ResponsePaymentDate": today,
-            "ResponsePaymentAmount": req.query.Amount,
-            "ResponsePaymentStatus" : "Sufficient Funds Not Available",
-            "ResponsePaymentReason" : "Declined",
-            "ResponsePaymentReceipt" : receipt,
-            "ResponsePaymentCurrency" : req.query.AmountCurrency,
-            "ResponsePaymentInstituion" : req.query.Institution,
-            "ResponsePaymentAccountName" : req.query.AccountName
-            
-        }];
-        
-        var PaymentUnsupported = [{
-            "ResponsePaymentType": req.query.PaymentType,
-            "ResponsePaymentDate": today,
-            "ResponsePaymentAmount": req.query.Amount,
-            "ResponsePaymentStatus" : "Declined",
-            "ResponsePaymentReason" : "Payment type not supported",
-            "ResponsePaymentReceipt" : receipt,
-            "ResponsePaymentCurrency" : req.query.AmountCurrency,
-            "ResponsePaymentInstituion" : req.query.Institution,
-            "ResponsePaymentAccountName" : req.query.AccountName
-        }];
+    var PaymentConfirmed = [{
+        "ResponsePaymentType": req.query.PaymentType,
+        "ResponsePaymentDate": today,
+        "ResponsePaymentAmount": req.query.Amount,
+        "ResponsePaymentStatus": "Confirmed",
+        "ResponsePaymentReason": "Ok",
+        "ResponsePaymentReceipt": receipt,
+        "ResponsePaymentCurrency": req.query.AmountCurrency,
+        "ResponsePaymentInstituion": req.query.Institution,
+        "ResponsePaymentAccountName": req.query.AccountName
+    }];
+    var PaymentRejected = [{
+        "ResponsePaymentType": req.query.PaymentType,
+        "ResponsePaymentDate": today,
+        "ResponsePaymentAmount": req.query.Amount,
+        "ResponsePaymentStatus": "Sufficient Funds Not Available",
+        "ResponsePaymentReason": "Declined",
+        "ResponsePaymentReceipt": receipt,
+        "ResponsePaymentCurrency": req.query.AmountCurrency,
+        "ResponsePaymentInstituion": req.query.Institution,
+        "ResponsePaymentAccountName": req.query.AccountName
+    
+    }];
+    
+    var PaymentUnsupported = [{
+        "ResponsePaymentType": req.query.PaymentType,
+        "ResponsePaymentDate": today,
+        "ResponsePaymentAmount": req.query.Amount,
+        "ResponsePaymentStatus": "Declined",
+        "ResponsePaymentReason": "Payment type not supported",
+        "ResponsePaymentReceipt": receipt,
+        "ResponsePaymentCurrency": req.query.AmountCurrency,
+        "ResponsePaymentInstituion": req.query.Institution,
+        "ResponsePaymentAccountName": req.query.AccountName
+    }];
     
     // Dynamic Response Section
     
-    if (payamount > 5000)
-            {
-                return res.json(PaymentRejected);
-            }
-            
-    else
-    {
-    if (paychannel.includes("VISA"))
-            {
-                return res.json(PaymentConfirmed);           
-            }
-            
-    if (paychannel.includes("DEBIT"))
-            {
-                return res.json(PaymentConfirmed);           
-            }
-            
-    if (paychannel.includes("AMEX"))
-            {
-                return res.json(PaymentUnsupported);           
-            }
-
-    if ( (!paychannel.includes("AMEX")) && (!paychannel.includes("AMEX")) && (!paychannel.includes("DEBIT")) )
-            {
-                return res.json(PaymentUnsupported);           
-            }
-}
-
+    if (payamount > 5000) {
+        return res.json(PaymentRejected);
+    } else {
+        if (paychannel.includes("VISA")) {
+            return res.json(PaymentConfirmed);
+        }
+    
+        if (paychannel.includes("DEBIT")) {
+            return res.json(PaymentConfirmed);
+        }
+    
+        if (paychannel.includes("AMEX")) {
+            return res.json(PaymentUnsupported);
+        }
+    
+        if ((!paychannel.includes("AMEX")) && (!paychannel.includes("AMEX")) && (!paychannel.includes("DEBIT"))) {
+            return res.json(PaymentUnsupported);
+        }
+    }
 });
