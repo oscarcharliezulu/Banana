@@ -45,5 +45,5 @@ Sandbox.define('/OneTimePayment','GET', function(req, res) {
 // Payment amount simply returns the same value passed
     var payamount = req.query.Amount;
 
-    return res.json(req.query.Amount);
+    return res.json(payamount);
 });
