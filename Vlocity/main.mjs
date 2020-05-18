@@ -40,12 +40,17 @@ Sandbox.define('/OneTimePayment','GET', function(req, res){
     // This API returns a confirmation of a one-time-online payment by a customer.
     // Expected parameters:
     // PaymentType = VISA, AMEX, DEBIT, any others will return unsupported payment type
+    // Payment amount simply returns the same value passed
+        
     // PaymentDate = todays date
         var today = new Date();
-    // Payment amount simply returns the same value passed
+
     // Generate a random Receipt Number:
         var receipt =  Math.floor(Math.random() * 1000000000);
+    
+    // Other variables
         var paychannel = req.query.PaymentType;
+        var payamount = req.query.Amount;
     
     // Response Examples:
         var PaymentConfirmed = [{
@@ -75,6 +80,12 @@ Sandbox.define('/OneTimePayment','GET', function(req, res){
         }];
     
     // Dynamic Response Section
+    
+    if (payamount > 5000)
+            {
+                return res.json(PaymentRejected);           
+            }
+            
     
     if (paychannel.includes("VISA"))
             {
