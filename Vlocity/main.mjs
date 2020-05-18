@@ -64,7 +64,7 @@ Sandbox.define('/OneTimePayment','GET', function(req, res) {
         "ResponsePaymentReceipt" : receipt 
     }];
     
-        var PaymentUnsupported = [{
+    var PaymentUnsupported = [{
         "ResponsePaymentType": req.query.PaymentType,
         "ResponsePaymentDate": today,
         "ResponsePaymentAmount": req.query.Amount,
