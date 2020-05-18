@@ -20,6 +20,14 @@ Sandbox.define('/Blacklist', 'GET', function(req, res){
     
     var n = req.query.FirstName;
     
+ // Check the request, make sure it is a compatible type
+    if (!req.is('application/json')) {
+        return res.send(400, 'Invalid content type, expected application/json');
+}
+// Set the type of response, sets the content type.
+    res.type('application/json');
+    
+    
     if (n.includes("John"))
         {
             return res.json(failed);
@@ -28,6 +36,9 @@ Sandbox.define('/Blacklist', 'GET', function(req, res){
         {
             return res.json(passed);
         }
+        
+// Set the status code of the response.
+    res.status(200);
 }) ;
 
 
