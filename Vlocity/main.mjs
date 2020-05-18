@@ -37,11 +37,68 @@ Sandbox.define('/Blacklist', 'GET', function(req, res){
 
 
 Sandbox.define('/OneTimePayment','GET', function(req, res) {
-
-
+// This API returns a confirmation of a one-time-online payment by a customer.
+// Expected parameters:
+// PaymentType = VISA, AMEX, DEBIT, any others will return unsupported payment type
+// PaymentDate = todays date
+    var today = new Date();
+// Payment amount simply returns the same value passed
+    var payamount = req.query.Amount;
 
 
     
+// Response Examples:
+    var PaymentConfirmed = [{
+        "ResponsePaymentType": "VISA",
+        "ResponsePaymentDate": today,
+        "ResponsePaymentAmount": payamount,
+        "ResponsePaymentStatus" : "Confirmed",
+        "ResponsePaymentReason" : "Ok"
+    }];
+    
+        var PaymentRejected = [{
+        "ResponsePaymentType": "AMEX",
+        "ResponsePaymentDate": today,
+        "ResponsePaymentAmount": payamount,
+        "ResponsePaymentStatus" : "Sufficient Funds Not Available",
+        "ResponsePaymentReason" : "Declined"
+    }];
+    
+        var PaymentDirectDebitConfirmed = [{
+        "ResponsePaymentType": "DEBIT",
+        "ResponsePaymentDate": today,
+        "ResponsePaymentAmount": payamount,
+        "ResponsePaymentStatus" : "Confirmed",
+        "ResponsePaymentReason" : "Ok"
+    }];
+    
+        var PaymentDirectDebitUnsupported = [{
+        "ResponsePaymentType": n.query.PaymentType,
+        "ResponsePaymentDate": today,
+        "ResponsePaymentAmount": payamount,
+        "ResponsePaymentStatus" : "Payment type not available",
+        "ResponsePaymentReason" : "Declined"
+    }];
+
+    var m = req.query.PaymentType;
+    
+// Dynamic Response Section
+    if (m.includes("VISA"));
+        {
+            return res.json(PaymentConfirmed);
+        } 
+    elseif  (m.includes("AMEX"));
+        {
+            return res.json(PaymentRejected);
+        }
+    elseif (m.includes("Debit"));
+        {
+            return res.json(PaymentDirectDebitConfirmed);
+        }
+    endif
+        {
+            return res.json(PaymentDirectDebitConfirmed);
+        }
     // Send the response body.
     res.json({
         "status": "ok"
