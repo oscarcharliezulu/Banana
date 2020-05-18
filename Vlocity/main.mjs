@@ -71,7 +71,7 @@ Sandbox.define('/OneTimePayment','GET', function(req, res){
             "ResponsePaymentReason" : "Declined",
             "ResponsePaymentReceipt" : receipt,
             "ResponsePaymentCurrency" : req.query.AmountCurrency,
-            "ResponsePaymentInstituion" : req.query.AmountCurrencyInstitution
+            "ResponsePaymentInstituion" : req.query.Institution
             
         }];
         
@@ -83,7 +83,7 @@ Sandbox.define('/OneTimePayment','GET', function(req, res){
             "ResponsePaymentReason" : "Payment type not supported",
             "ResponsePaymentReceipt" : receipt,
             "ResponsePaymentCurrency" : req.query.AmountCurrency,
-            "ResponsePaymentInstituion" : req.query.AmountCurrencyInstitution
+            "ResponsePaymentInstituion" : req.query.Institution
         }];
     
     // Dynamic Response Section
