@@ -75,10 +75,6 @@ Sandbox.define('/OneTimePayment','GET', function(req, res){
         }];
     
     // Dynamic Response Section
-    if (PayChannel.includes("VISA")) { 
-        return res.json(PaymentConfirmed);  
-    }
-    
     return res.json(PaymentConfirmed);    
     
 
