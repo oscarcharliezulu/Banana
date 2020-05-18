@@ -81,13 +81,31 @@ Sandbox.define('/OneTimePayment','GET', function(req, res){
     
     // Dynamic Response Section
     
-    if (payamount < 5000)
+    if (payamount > 5000)
             {
                 return res.json(PaymentRejected);
             }
             
     
- 
+    if (paychannel.includes("VISA"))
+            {
+                return res.json(PaymentConfirmed);           
+            }
+            
+    if (paychannel.includes("DEBIT"))
+            {
+                return res.json(PaymentConfirmed);           
+            }
+            
+    if (paychannel.includes("AMEX"))
+            {
+                return res.json(PaymentUnsupported);           
+            }
+
+    if ( (!paychannel.includes("AMEX")) && (!paychannel.includes("AMEX")) && (!paychannel.includes("DEBIT")) )
+            {
+                return res.json(PaymentUnsupported);           
+            }
 
 
 });
