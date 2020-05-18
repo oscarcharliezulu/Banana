@@ -54,7 +54,8 @@ Sandbox.define('/OneTimePayment','GET', function(req, res){
             "ResponsePaymentAmount": req.query.Amount,
             "ResponsePaymentStatus" : "Confirmed",
             "ResponsePaymentReason" : "Ok",
-            "ResponsePaymentReceipt" : receipt 
+            "ResponsePaymentReceipt" : receipt,
+            "PayChannel" : PayChannel
         }];
         var PaymentRejected = [{
             "ResponsePaymentType": req.query.PaymentType,
