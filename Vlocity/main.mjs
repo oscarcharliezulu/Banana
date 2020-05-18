@@ -4,8 +4,7 @@
  */
 
 Sandbox.define('/Blacklist', 'GET', function(req, res){
-    // send 'Hello world' response
-    // res.send('Hello world');
+//  Return information on Blacklisted customers
     
     var failed = [{
         "Blacklist": "Fraud",
