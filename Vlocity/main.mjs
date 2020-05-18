@@ -74,7 +74,16 @@ Sandbox.define('/OneTimePayment','GET', function(req, res) {
     }];
 
 // Dynamic Response Section
-
+    var m = req.query.PaymentType;
+    
+    if (m.includes("John"))
+        {
+            return res.json(PaymentConfirmed);
+        } 
+    else 
+        {
+            return res.json(PaymentUnsupported);
+        }
     return res.json(PaymentConfirmed);
 
 });
