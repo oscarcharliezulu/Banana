@@ -45,6 +45,7 @@ Sandbox.define('/OneTimePayment','GET', function(req, res){
     // Payment amount simply returns the same value passed
     // Generate a random Receipt Number:
         var receipt =  Math.floor(Math.random() * 1000000000);
+        var m = req.query.PaymentType;
     
     // Response Examples:
         var PaymentConfirmed = [{
