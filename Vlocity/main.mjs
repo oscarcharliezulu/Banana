@@ -36,7 +36,7 @@ Sandbox.define('/Blacklist', 'GET', function(req, res){
 
 
 // --------------------------------------------------------------------------------------------------------------------
-Sandbox.define('/OneTimePayment','GET', function(req, res){
+Sandbox.define('/OneTimePayment','GET', function(req, res){ 
     // This API returns a confirmation of a one-time-online payment by a customer.
     // Expected parameters:
     // PaymentType = VISA, AMEX, DEBIT, any others will return unsupported payment type
