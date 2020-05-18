@@ -58,8 +58,8 @@ Sandbox.define('/OneTimePayment','GET', function(req, res) {
         "ResponsePaymentType": paychannel,
         "ResponsePaymentDate": today,
         "ResponsePaymentAmount": payamount,
-        "ResponsePaymentStatus" : "Confirmed",
-        "ResponsePaymentReason" : "Ok"
+        "ResponsePaymentStatus" : "Declined",
+        "ResponsePaymentReason" : "Payment type not supported"
     }];
 
 // Dynamic Response Section
