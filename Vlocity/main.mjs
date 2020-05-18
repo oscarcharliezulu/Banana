@@ -44,17 +44,18 @@ Sandbox.define('/OneTimePayment','GET', function(req, res) {
     var today = new Date();
 // Payment amount simply returns the same value passed
     var payamount = req.query.Amount;
+    var paychannel = req.query.PaymentType;
     
 // Response Examples:
     var PaymentConfirmed = [{
-        "ResponsePaymentType": "VISA",
+        "ResponsePaymentType": paychannel,
         "ResponsePaymentDate": today,
         "ResponsePaymentAmount": payamount,
         "ResponsePaymentStatus" : "Confirmed",
         "ResponsePaymentReason" : "Ok"
     }];
         var PaymentUnsupported = [{
-        "ResponsePaymentType": "VISA",
+        "ResponsePaymentType": paychannel,
         "ResponsePaymentDate": today,
         "ResponsePaymentAmount": payamount,
         "ResponsePaymentStatus" : "Confirmed",
