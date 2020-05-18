@@ -31,7 +31,7 @@ Sandbox.define('/Blacklist', 'GET', function(req, res){
         
 // Default status code of the response is res.status(200);
 
-}) ;
+});
 
 
 
@@ -78,4 +78,4 @@ Sandbox.define('/OneTimePayment','GET', function(req, res){
     return res.json(PaymentConfirmed);    
     
 
-})
+});
