@@ -29,8 +29,8 @@ Sandbox.define('/Blacklist', 'GET', function(req, res){
             return res.json(passed);
         }
         
-// Set the status code of the response.
-    res.status(200);
+// Default status code of the response is res.status(200);
+
 }) ;
 
 
