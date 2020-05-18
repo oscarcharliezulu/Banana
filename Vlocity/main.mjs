@@ -82,25 +82,27 @@ Sandbox.define('/OneTimePayment','GET', function(req, res) {
 
     var m = req.query.PaymentType;
     
+    return res.json(PaymentConfirmed);
+    
 // Dynamic Response Section
-    if (m.includes("VISA"));
-        {
-            return res.json(PaymentConfirmed);
-        } 
-    elseif  (m.includes("AMEX"));
-        {
-            return res.json(PaymentRejected);
-        }
-    elseif (m.includes("Debit"));
-        {
-            return res.json(PaymentDirectDebitConfirmed);
-        }
-    endif
-        {
-            return res.json(PaymentDirectDebitUnsupported);
-        }
-    // Send the response body.
-    res.json({
-        "status": "ok"
-    });
-})
+//    if (m.includes("VISA"));
+//       {
+//            return res.json(PaymentConfirmed);
+//        } 
+//    elseif  (m.includes("AMEX"));
+//        {
+//            return res.json(PaymentRejected);
+//        }
+//    elseif (m.includes("Debit"));
+//        {
+//            return res.json(PaymentDirectDebitConfirmed);
+//        }
+//    endif
+//        {
+//            return res.json(PaymentDirectDebitUnsupported);
+//        }
+//    // Send the response body.
+//    res.json({
+//        "status": "ok"
+//    });
+});
