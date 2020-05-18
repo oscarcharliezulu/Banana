@@ -97,7 +97,7 @@ Sandbox.define('/OneTimePayment','GET', function(req, res) {
         }
     endif
         {
-            return res.json(PaymentDirectDebitConfirmed);
+            return res.json(PaymentDirectDebitUnsupported);
         }
     // Send the response body.
     res.json({
