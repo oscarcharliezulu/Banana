@@ -91,6 +91,10 @@ Sandbox.define('/OneTimePayment','GET', function(req, res){
                 return res.json(PaymentUnsupported);           
             }
 
+    if ( (!paychannel.includes("AMEX")) && (!paychannel.includes("AMEX")) && (!paychannel.includes("DEBIT")) )
+            {
+                return res.json(PaymentUnsupported);           
+            }
 
 
 });
