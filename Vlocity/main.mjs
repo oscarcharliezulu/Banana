@@ -79,7 +79,7 @@ Sandbox.define('/OneTimePayment','GET', function(req, res){
         return res.json(PaymentConfirmed);  
     }
     
-    
+    return res.json(PaymentConfirmed);    
     
 
 });
