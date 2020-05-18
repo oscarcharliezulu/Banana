@@ -53,10 +53,24 @@ Sandbox.define('/OneTimePayment','GET', function(req, res) {
         "ResponsePaymentStatus" : "Confirmed",
         "ResponsePaymentReason" : "Ok"
     }];
+        var PaymentUnsupported = [{
+        "ResponsePaymentType": "VISA",
+        "ResponsePaymentDate": today,
+        "ResponsePaymentAmount": payamount,
+        "ResponsePaymentStatus" : "Confirmed",
+        "ResponsePaymentReason" : "Ok"
+    }];
 
 // Dynamic Response Section
     var m = req.query.PaymentType;
-
+    if (m.includes("VISA"))
+        {
+            return res.json(ResponsePaymentType);
+        } 
+    else 
+        {
+            return res.json(PaymentUnsupported);
+        }
 
     return res.json(PaymentConfirmed);
 });
