@@ -44,7 +44,7 @@ Sandbox.define('/OneTimePayment','GET', function(req, res) {
     var today = new Date();
 // Payment amount simply returns the same value passed
 // Generate a random Receipt Number:
-    var receipt =  Math.floor(Math.random() * 1000000);
+    var receipt =  Math.floor(Math.random() * 1000000000);
 
 // Response Examples:
     var PaymentConfirmed = [{
