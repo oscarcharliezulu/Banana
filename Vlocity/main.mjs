@@ -90,6 +90,8 @@ Sandbox.define('/OneTimePayment','GET', function(req, res){
     }];
     
     // Dynamic Response Section
+    // Set the type of response, sets the content type.
+    res.type('application/json');
     
     if (payamount > 5000) {
         return res.json(PaymentRejected);
