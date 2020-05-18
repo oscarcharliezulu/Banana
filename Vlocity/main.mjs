@@ -43,14 +43,27 @@ Sandbox.define('/OneTimePayment','GET', function(req, res) {
 // PaymentDate = todays date
     var today = new Date();
 // Payment amount simply returns the same value passed
-    var payamount = req.query.Amount;
-    
-    
-    
-    var paychannel = req.query.PaymentType;
-    
+// Generate a random Receipt Number:
+    var receipt = new Math.floor(Math.random() * 1000000);
+
 // Response Examples:
     var PaymentConfirmed = [{
+        "ResponsePaymentType": req.query.PaymentType,
+        "ResponsePaymentDate": today,
+        "ResponsePaymentAmount": req.query.Amount,
+        "ResponsePaymentStatus" : "Confirmed",
+        "ResponsePaymentReason" : "Ok",
+        "ResponsePaymentReceipt" : receipt 
+    }];
+    var PaymentRejected = [{
+        "ResponsePaymentType": req.query.PaymentType,
+        "ResponsePaymentDate": today,
+        "ResponsePaymentAmount": req.query.Amount,
+        "ResponsePaymentStatus" : "Sufficient Funds Not Available",
+        "ResponsePaymentReason" : "Declined"
+    }];
+    
+    var PaymentDirectDebitConfirmed = [{
         "ResponsePaymentType": req.query.PaymentType,
         "ResponsePaymentDate": today,
         "ResponsePaymentAmount": req.query.Amount,
