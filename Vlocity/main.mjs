@@ -64,14 +64,6 @@ Sandbox.define('/OneTimePayment','GET', function(req, res) {
         "ResponsePaymentReceipt" : receipt 
     }];
     
-    var PaymentDirectDebitConfirmed = [{
-        "ResponsePaymentType": req.query.PaymentType,
-        "ResponsePaymentDate": today,
-        "ResponsePaymentAmount": req.query.Amount,
-        "ResponsePaymentStatus" : "Confirmed",
-        "ResponsePaymentReason" : "Ok",
-        "ResponsePaymentReceipt" : receipt 
-    }];
         var PaymentUnsupported = [{
         "ResponsePaymentType": req.query.PaymentType,
         "ResponsePaymentDate": today,
