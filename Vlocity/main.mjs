@@ -54,8 +54,7 @@ Sandbox.define('/OneTimePayment','GET', function(req, res){
             "ResponsePaymentAmount": req.query.Amount,
             "ResponsePaymentStatus" : "Confirmed",
             "ResponsePaymentReason" : "Ok",
-            "ResponsePaymentReceipt" : receipt,
-            "PayChannel" : paychannel
+            "ResponsePaymentReceipt" : receipt
         }];
         var PaymentRejected = [{
             "ResponsePaymentType": req.query.PaymentType,
@@ -81,9 +80,9 @@ Sandbox.define('/OneTimePayment','GET', function(req, res){
             {
                 return res.json(PaymentConfirmed);           
             }
-    if (paychannel.includes("VISA"))
+    if (paychannel.includes("AMEX"))
             {
-                return res.json(PaymentConfirmed);           
+                return res.json(PaymentUnsupported);           
             }
 
 
