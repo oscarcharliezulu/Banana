@@ -36,53 +36,53 @@ Sandbox.define('/Blacklist', 'GET', function(req, res){
 
 
 // --------------------------------------------------------------------------------------------------------------------
-Sandbox.define('/OneTimePayment','GET', function(req, res) {
-// This API returns a confirmation of a one-time-online payment by a customer.
-// Expected parameters:
-// PaymentType = VISA, AMEX, DEBIT, any others will return unsupported payment type
-// PaymentDate = todays date
-    var today = new Date();
-// Payment amount simply returns the same value passed
-// Generate a random Receipt Number:
-    var receipt =  Math.floor(Math.random() * 1000000000);
-
-// Response Examples:
-    var PaymentConfirmed = [{
-        "ResponsePaymentType": req.query.PaymentType,
-        "ResponsePaymentDate": today,
-        "ResponsePaymentAmount": req.query.Amount,
-        "ResponsePaymentStatus" : "Confirmed",
-        "ResponsePaymentReason" : "Ok",
-        "ResponsePaymentReceipt" : receipt 
-    }];
-    var PaymentRejected = [{
-        "ResponsePaymentType": req.query.PaymentType,
-        "ResponsePaymentDate": today,
-        "ResponsePaymentAmount": req.query.Amount,
-        "ResponsePaymentStatus" : "Sufficient Funds Not Available",
-        "ResponsePaymentReason" : "Declined",
-        "ResponsePaymentReceipt" : receipt 
-    }];
+Sandbox.define('/OneTimePayment','GET', function(req, res){
+    // This API returns a confirmation of a one-time-online payment by a customer.
+    // Expected parameters:
+    // PaymentType = VISA, AMEX, DEBIT, any others will return unsupported payment type
+    // PaymentDate = todays date
+        var today = new Date();
+    // Payment amount simply returns the same value passed
+    // Generate a random Receipt Number:
+        var receipt =  Math.floor(Math.random() * 1000000000);
     
-    var PaymentUnsupported = [{
-        "ResponsePaymentType": req.query.PaymentType,
-        "ResponsePaymentDate": today,
-        "ResponsePaymentAmount": req.query.Amount,
-        "ResponsePaymentStatus" : "Declined",
-        "ResponsePaymentReason" : "Payment type not supported",
-        "ResponsePaymentReceipt" : receipt 
-    }];
-
-// Dynamic Response Section
-
-    if (req.query.PaymentType.includes("VISA"))
-        {
-            return res.json(PaymentConfirmed);
-        } 
-    else 
-        {
-            return res.json(PaymentUnsupported);
-        }
-
-
+    // Response Examples:
+        var PaymentConfirmed = [{
+            "ResponsePaymentType": req.query.PaymentType,
+            "ResponsePaymentDate": today,
+            "ResponsePaymentAmount": req.query.Amount,
+            "ResponsePaymentStatus" : "Confirmed",
+            "ResponsePaymentReason" : "Ok",
+            "ResponsePaymentReceipt" : receipt 
+        }];
+        var PaymentRejected = [{
+            "ResponsePaymentType": req.query.PaymentType,
+            "ResponsePaymentDate": today,
+            "ResponsePaymentAmount": req.query.Amount,
+            "ResponsePaymentStatus" : "Sufficient Funds Not Available",
+            "ResponsePaymentReason" : "Declined",
+            "ResponsePaymentReceipt" : receipt 
+        }];
+        
+        var PaymentUnsupported = [{
+            "ResponsePaymentType": req.query.PaymentType,
+            "ResponsePaymentDate": today,
+            "ResponsePaymentAmount": req.query.Amount,
+            "ResponsePaymentStatus" : "Declined",
+            "ResponsePaymentReason" : "Payment type not supported",
+            "ResponsePaymentReceipt" : receipt 
+        }];
+    
+    // Dynamic Response Section
+    
+        if (req.query.PaymentType.includes("VISA"))
+            {
+                return res.json(PaymentConfirmed);
+            } 
+        else 
+            {
+                return res.json(PaymentUnsupported);
+            }
+            
+            
 });
