@@ -1,6 +1,6 @@
 /**
  * My API Sandbox
- * 
+ *  
  */
 
 Sandbox.define('/Blacklist', 'GET', function(req, res){
