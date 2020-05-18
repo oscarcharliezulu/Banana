@@ -81,5 +81,11 @@ Sandbox.define('/OneTimePayment','GET', function(req, res){
             {
                 return res.json(PaymentConfirmed);           
             }
+    if (paychannel.includes("VISA"))
+            {
+                return res.json(PaymentConfirmed);           
+            }
+
+
 
 });
