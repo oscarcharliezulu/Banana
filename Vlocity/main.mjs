@@ -45,7 +45,7 @@ Sandbox.define('/OneTimePayment','GET', function(req, res) {
 // Payment amount simply returns the same value passed
     var payamount = req.query.Amount;
     
-    // Response Examples:
+// Response Examples:
     var PaymentConfirmed = [{
         "ResponsePaymentType": "VISA",
         "ResponsePaymentDate": today,
@@ -53,6 +53,10 @@ Sandbox.define('/OneTimePayment','GET', function(req, res) {
         "ResponsePaymentStatus" : "Confirmed",
         "ResponsePaymentReason" : "Ok"
     }];
+
+// Dynamic Response Section
+    var m = req.query.PaymentType;
+
 
     return res.json(PaymentConfirmed);
 });
