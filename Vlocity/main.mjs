@@ -51,7 +51,7 @@ Sandbox.define('/OneTimePayment','GET', function(req, res){
     // Other variables
         var paychannel = req.query.PaymentType;
         var payamount = req.query.Amount;
-        payamount = payamount.toPrecision(2);
+        payamount == payamount.toPrecision(2);
     
     // Response Examples:
         var PaymentConfirmed = [{
