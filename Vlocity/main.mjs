@@ -15,12 +15,11 @@ Sandbox.define('/Blacklist', 'GET', function(req, res){
     var passed = [{
         "Blacklist": "None",
         "Outcome": "No Issues Found",
-        "Recorded": "05/05/2020"
+        "Recorded": new Date(new Date().getFullYear(),new Date().getMonth() , new Date().getDate())
     }];
     
     
     var n = req.query.FirstName;
-    passed[2] = new Date(new Date().getFullYear(),new Date().getMonth() , new Date().getDate());
     
     if (n.includes("John")) {
         return res.json(failed);
