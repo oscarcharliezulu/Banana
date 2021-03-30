@@ -6,6 +6,13 @@
 Sandbox.define('/Blacklist', 'GET', function(req, res){
     //  Return information on Blacklisted customers
     
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = dd + '/' + mm + '/' + yyyy;
+    
     var failed = [{
         "Blacklist": "Fraud",
         "Outcome": "On Blacklist",
@@ -15,7 +22,7 @@ Sandbox.define('/Blacklist', 'GET', function(req, res){
     var passed = [{
         "Blacklist": "None",
         "Outcome": "No Issues Found",
-        "Recorded": new Date(new Date().getFullYear(),new Date().getMonth() , new Date().getDate())
+        "Recorded": today
     }];
     
     
