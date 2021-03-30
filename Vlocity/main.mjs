@@ -4,12 +4,12 @@
  */
 
 Sandbox.define('/Blacklist', 'GET', function(req, res){
-//  Return information on Blacklisted customers
+    //  Return information on Blacklisted customers
     
     var failed = [{
         "Blacklist": "Fraud",
         "Outcome": "On Blacklist",
-        "Recorded": "08/04/2013"
+        "Recorded": "08/03/2021"
     }];
     
     var passed = [{
@@ -18,19 +18,17 @@ Sandbox.define('/Blacklist', 'GET', function(req, res){
         "Recorded": "05/05/2020"
     }];
     
-    var n = req.query.FirstName;
     
-    if (n.includes("John"))
-        {
-            return res.json(failed);
-        } 
-    else 
-        {
-            return res.json(passed);
-        }
-        
-// Default status code of the response is res.status(200);
-
+    var n = req.query.FirstName;
+    passed[2] = new Date(new Date().getFullYear(),new Date().getMonth() , new Date().getDate());
+    
+    if (n.includes("John")) {
+        return res.json(failed);
+    } else {
+        return res.json(passed);
+    }
+    
+    // Default status code of the response is res.status(200);
 });
 
 
