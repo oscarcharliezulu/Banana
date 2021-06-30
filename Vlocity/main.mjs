@@ -178,31 +178,3 @@ Sandbox.define('/PolicyAdminGetCustomerRecord','GET', function(req, res){
 
 
 
-Sandbox.define('/PolicyAdminGetCustomerRecordXML','GET', function(req, res) {
-    // Check the request, make sure it is a compatible type
-    if (!req.is('application/xml')) {
-        return res.send(400, 'Invalid content type, expected application/xml');
-    }
-    
-    // Set the type of response, sets the content type.
-    res.type('application/json');
-    
-    var AccId = req.xmlDoc.get("//*[local-name()='AccountId']").text();
-    
-    var xRes = [{
-        "PASAccountNo": req.query.AccountId,
-        "PASAccountName": "GAIL",
-        "PASStatus": "In Force",
-        "PASBilling": "Current"
-    }];
-    
-    // Set the status code of the response.
-    res.status(200);
-    
-    // Send the response body.
-    res.json({
-        "status": "ok"
-        
-        
-    });
-})
