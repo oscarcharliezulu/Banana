@@ -146,16 +146,18 @@ Sandbox.define('/PolicyAdminGetCustomerRecord','GET', function(req, res){
     
     var n = req.query.AccountId;
     var PASaccount = [{
-        "PASAccountNo": "1234567890",
+        "PASAccountNo": req.query.AccountId,
         "PASAccountName": "Rachel",
-        "PASAccountCity": "Singapore",
-        "PASCurrent": true
+        "PASStatus": "In Force",
+        "PASAccountCity": "Bangalore",
+        "PASBilling": "Current"
     }];
     var PASaccount2 = [{
-        "PASAccountNo": "999888001",
-        "PASAccountName": "SAIL",
+        "PASAccountNo": req.query.AccountId,
+        "PASAccountName": "GAIL",
+        "PASStatus": "In Force",
         "PASAccountCity": "Bangalore",
-        "PASCurrent": true
+        "PASBilling": "Current"
     }];
     
     if (n.includes("0014x00000EqoanAAB")) {
