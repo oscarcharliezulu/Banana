@@ -175,10 +175,7 @@ Sandbox.define('/PolicyAdminGetCustomerRecord','GET', function(req, res){
     });
 })
 
-
-
-
-
+// ----------------------------------------------------------------------------
 
 Sandbox.define('/PolicyAdminGetCustomerRecordXML','GET', function(req, res) {
     // Check the request, make sure it is a compatible type
