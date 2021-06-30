@@ -195,6 +195,7 @@ Sandbox.define('/PolicyAdminGetCustomerRecordXML','GET', function(req, res) {
         "PASAccountName": "GAIL",
         "PASStatus": "In Force",
         "PASBilling": "Current",
+        "Format": "XML to JSON parsed",
         "status": "ok"
     });
 })
