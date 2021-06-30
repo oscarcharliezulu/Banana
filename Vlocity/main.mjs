@@ -147,6 +147,26 @@ Sandbox.define('/PolicyAdminGetCustomerRecord','GET', function(req, res) {
     // Set the type of response, sets the content type.
     res.type('application/json');
     
+    var n = req.query.AccountId;
+    var PASaccount = [{
+        "PASAccountNo": "1234567890",
+        "PASAccountName": "Rachel",
+        "PASAccountCity": "Singapore",
+        "PASCurrent": true
+    }];
+    var PASaccount2 = [{
+        "PASAccountNo": "999888001",
+        "PASAccountName": "SAIL",
+        "PASAccountCity": "Bangalore",
+        "PASCurrent": true
+    }];
+    
+    if (n.includes("0014x00000EqoanAAB")) {
+        return res.json(PASaccount);
+    } else {
+        return res.json(PASaccount2);
+    }
+    
     // Set the status code of the response.
     res.status(200);
     
