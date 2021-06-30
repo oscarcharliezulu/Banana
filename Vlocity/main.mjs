@@ -194,7 +194,6 @@ Sandbox.define('/PolicyAdminGetCustomerRecordXML','GET', function(req, res) {
         "PASBilling": "Current"
     }];
     
-    //return res.json(xRes);
     
     // Set the status code of the response.
     res.status(200);
