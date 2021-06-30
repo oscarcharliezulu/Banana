@@ -192,6 +192,13 @@ Sandbox.define('/PolicyAdminGetCustomerRecordXML','GET', function(req, res) {
     // Set the status code of the response.
     res.status(200);
     
+    var xRes = [{
+        "PASAccountNo": req.query.AccountId,
+        "PASAccountName": "GAIL",
+        "PASStatus": "In Force",
+        "PASBilling": "Current"
+    }];    
+    
     // Send the response body.
     res.json({
         "status": "ok"
