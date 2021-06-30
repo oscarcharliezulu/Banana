@@ -198,7 +198,7 @@ Sandbox.define('/PolicyAdminGetCustomerRecordXML','GET', function(req, res) {
     res.status(200);
     
     // Send the response body.
-    res.render('xRes');
+    res.render('getPolicyAdminGetCustomerRecordXML');
 })
 
 
