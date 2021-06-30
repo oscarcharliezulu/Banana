@@ -201,9 +201,9 @@ Sandbox.define('/PolicyAdminGetCustomerRecordXML','GET', function(req, res) {
     }];
     
     if (n.includes("0014x00000EqoanAAB")) {
-        return res.xmlDoc(PASaccount);
+        res.render(PASaccount);
     } else {
-        return res.xmlDoc(PASaccount2);
+        res.render(PASaccount2);
     }
     
     //getPolicyAdminGetCustomerRecordXML = PASaccount;
@@ -212,5 +212,5 @@ Sandbox.define('/PolicyAdminGetCustomerRecordXML','GET', function(req, res) {
     res.status(200);
     
     // Send the response body.
-    res.render('getPolicyAdminGetCustomerRecordXML');
+    //res.render('getPolicyAdminGetCustomerRecordXML');
 })
