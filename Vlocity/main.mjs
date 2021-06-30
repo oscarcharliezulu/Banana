@@ -188,13 +188,13 @@ Sandbox.define('/PolicyAdminGetCustomerRecordXML','GET', function(req, res) {
     var AccId = req.xmlDoc.get("//*[local-name()='AccountId']").text()
     
     var xRes = [{
-        "PASAccountNo": req.query.AccountId,
+        "PASAccountNo": AccId,
         "PASAccountName": "GAIL",
         "PASStatus": "In Force",
         "PASBilling": "Current"
     }];
     
-    return res.json(xRes);
+    //return res.json(xRes);
     
     // Set the status code of the response.
     res.status(200);
