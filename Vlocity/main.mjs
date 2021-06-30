@@ -184,15 +184,16 @@ Sandbox.define('/PolicyAdminGetCustomerRecordXML','GET', function(req, res) {
     }
     
     // Set the type of response, sets the content type.
-    res.type('application/xml');
+    res.type('application/json');
     
     var xRes = [{
         "PASAccountNo": req.query.AccountId,
         "PASAccountName": "GAIL",
         "PASStatus": "In Force",
-        "PASAccountCity": "Bangalore",
         "PASBilling": "Current"
     }];
+    
+    return res.json(xRes);
     
     // Set the status code of the response.
     res.status(200);
