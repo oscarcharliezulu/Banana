@@ -185,6 +185,7 @@ Sandbox.define('/PolicyAdminGetCustomerRecordXML','GET', function(req, res) {
     
     // Set the type of response, sets the content type.
     res.type('application/json');
+    var AccId = req.xmlDoc.get("//*[local-name()='AccountId']").text()
     
     var xRes = [{
         "PASAccountNo": req.query.AccountId,
