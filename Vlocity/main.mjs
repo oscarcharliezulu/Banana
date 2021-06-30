@@ -200,11 +200,19 @@ Sandbox.define('/PolicyAdminGetCustomerRecordXML','GET', function(req, res) {
     });
 })
 
+// ----------------------------------------------------------------------------
+
 Sandbox.define('/CaseStatus','GET', function(req, res) {
     // Check the request, make sure it is a compatible type
     if (!req.is('application/json')) {
         return res.send(400, 'Invalid content type, expected application/json');
     }
+    
+    var resCase = [{
+        "CaseNumber": req.query.CaseNumber,
+        "Status": "In Progress",
+        "Team": "OPUS Core"
+    }];
     
     // Set the type of response, sets the content type.
     res.type('application/json');
@@ -216,4 +224,7 @@ Sandbox.define('/CaseStatus','GET', function(req, res) {
     res.json({
         "status": "ok"
     });
+            return res.json(resCase);
+            
 })
+
