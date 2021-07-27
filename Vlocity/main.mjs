@@ -248,7 +248,7 @@ Sandbox.define('/RiskRating','GET', function(req, res) {
     });
 })
 
-Sandbox.define('/ms_oauth/oauth2/endpoints/APIserviceprofile/tokens','POST', function(req, res) {
+Sandbox.define('/ms_oauth/oauth2/endpoints/APIserviceprofile/tokens','POST', function(req, res){
     // Check the request, make sure it is a compatible type
     if (!req.is('application/json')) {
         return res.send(400, 'Invalid content type, expected application/json');
@@ -262,6 +262,6 @@ Sandbox.define('/ms_oauth/oauth2/endpoints/APIserviceprofile/tokens','POST', fun
     
     // Send the response body.
     res.json({
-        "status": "ok"
+        "status": "Authenticated"
     });
 })
